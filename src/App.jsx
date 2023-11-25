@@ -9,6 +9,7 @@ import Laptop from './pages/Laptop';
 import Contactos from './pages/Contactos';
 import Tienda from './pages/Tienda'
 import Categorias from './pages/Categorias';
+import Busquedas from './pages/Busquedas';
 
 
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-      
+     
        <BrowserRouter>
         <Header/>
           <Routes>
@@ -30,6 +31,7 @@ function App() {
             <Route path="/Tienda" element={<Tienda/>} />
             <Route path="/Contacto" element={<Contactos/>} />
             <Route path='/categorias/:id' element={<Categorias/>}/>
+            <Route path='/Busquedas' element={<Busquedas/>}/>
             <Route path="*" element={<Inicio/>} />  
           </Routes>
           <Footer/>

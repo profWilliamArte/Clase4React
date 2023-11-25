@@ -5,13 +5,30 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import MenuCategorias from './MenuCategorias';
+import { useState } from 'react';
 
 
 
 
 const Header = () => {
+  const [valueSearch, setValueSearch]=useState("")
+
+  const onSearchChange = (e) => {
+      setValueSearch(e.target.value);
+  };
+  const navigate = useNavigate();
+
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    navigate('/Busquedas', {
+      state: valueSearch,
+    });	
+};
+
+
+
   return (
     <Navbar expand="lg" className="bg-black" data-bs-theme="dark">
     <Container fluid>
@@ -28,9 +45,9 @@ const Header = () => {
           </NavDropdown>
           <Link  to="/Contacto" className='nav-link'>Contacto</Link>
         </Nav>
-        <Form className="d-flex">
-          <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-          <Button variant="outline-success">Search</Button>
+        <Form className="d-flex" onSubmit={onSearchSubmit}>
+          <input value={valueSearch} onChange={onSearchChange} type="search" placeholder="Search" className="form-control me-2 " aria-label="Search"/>
+          <Button variant="outline-success" type='submit'>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>
