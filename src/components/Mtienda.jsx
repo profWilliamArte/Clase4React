@@ -3,7 +3,7 @@ import Card from "./Card";
 import ModalLateral from "./ModalLateral";
 const API='https://dummyjson.com/products';
 
-const Mtienda = () => {
+const Mtienda = ({carrito,setCarrito}) => {
   const [datos, setDatos] = useState([])
   const getDatos = async () =>{
     try {
@@ -25,7 +25,7 @@ const Mtienda = () => {
 
       <div className="row">
           {datos && datos.map((productos)=>(
-            <Card productos={productos} key={productos.id}/>
+            <Card carrito={carrito} setCarrito={setCarrito} productos={productos} key={productos.id}/>
           ))}
       </div>
     </div>

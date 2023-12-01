@@ -4,10 +4,10 @@
 
 import Mlaptop from '../components/Mlaptop'
 
-const Laptop = () => {
+const Laptop = ({carrito, setCarrito}) => {
   return (
     <>
-      <Mlaptop/>
+      <Mlaptop  carrito={carrito} setCarrito={setCarrito}/>
      
     </>
   )

@@ -1,9 +1,9 @@
 import Mmoviles from "../components/Mmoviles"
 
 
-const Moviles = () => {
+const Moviles = ({carrito, setCarrito}) => {
   return (
-    <Mmoviles/>
+    <Mmoviles carrito={carrito} setCarrito={setCarrito}/>
   )
 }
 

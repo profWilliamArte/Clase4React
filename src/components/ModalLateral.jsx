@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import MenuCatLateral from './MenuCatLateral';
-  console.log("modal lateral")
 const ModalLateral = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

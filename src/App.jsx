@@ -10,27 +10,30 @@ import Contactos from './pages/Contactos';
 import Tienda from './pages/Tienda'
 import Categorias from './pages/Categorias';
 import Busquedas from './pages/Busquedas';
+import { useState } from 'react';
 
 
 
 
 
 function App() {
-
+ 
+	const [carrito, setCarrito] = useState([]);
+  
 
   return (
     <>
      
        <BrowserRouter>
-        <Header/>
+        <Header  carrito={carrito} setCarrito={setCarrito}/>
           <Routes>
             <Route path="/" element={<Inicio/>} />
             <Route path="/Inicio" element={<Inicio/>} />
-            <Route path="/Movil" element={<Moviles/>} />
-            <Route path="/Laptop" element={<Laptop/>} />
-            <Route path="/Tienda" element={<Tienda/>} />
+            <Route path="/Movil" element={<Moviles carrito={carrito} setCarrito={setCarrito}/>} />
+            <Route path="/Laptop" element={<Laptop carrito={carrito} setCarrito={setCarrito}/>} />
+            <Route path="/Tienda" element={<Tienda carrito={carrito} setCarrito={setCarrito}/>} />
+            <Route path='/categorias/:id' element={<Categorias  carrito={carrito} setCarrito={setCarrito}/>}/>
             <Route path="/Contacto" element={<Contactos/>} />
-            <Route path='/categorias/:id' element={<Categorias/>}/>
             <Route path='/Busquedas' element={<Busquedas/>}/>
             <Route path="*" element={<Inicio/>} />  
           </Routes>

@@ -1,9 +1,9 @@
 import Mcategoria from "../components/Mcategoria"
 
 
-const Categorias = () => {
+const Categorias = ({carrito, setCarrito}) => {
   return (
-    <Mcategoria/>
+    <Mcategoria carrito={carrito} setCarrito={setCarrito}/>
   )
 }
 

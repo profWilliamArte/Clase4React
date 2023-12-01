@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import Card from "./Card"
 import ModalLateral from "./ModalLateral";
 const API='https://dummyjson.com/products/category/'
-const Mcategoria = () => {
+
+
+const Mcategoria = ({carrito,setCarrito}) => {
  
   const params = useParams() // parametros 
 
@@ -32,7 +34,7 @@ const Mcategoria = () => {
         <div className="row">
       
             {datos && datos.map((productos)=>(
-              <Card productos={productos} key={productos.id}/>
+              <Card carrito={carrito} setCarrito={setCarrito} productos={productos} key={productos.id}/>
             ))}
         </div>
     </div>
